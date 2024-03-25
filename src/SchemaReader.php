@@ -543,7 +543,7 @@ class SchemaReader
             }
         );
 
-        $type = $isSimple ? new ComplexTypeSimpleContent($schema, $node->getAttribute('name')) : new ComplexType($schema, $node->getAttribute('name'));
+        $type = $isSimple ? new ComplexTypeSimpleContent($schema, $node->getAttribute('name')) : new ComplexType($schema, (bool) $node->getAttribute('mixed'), $node->getAttribute('name'));
 
         $type->setDoc($this->getDocumentation($node));
         if ($node->getAttribute('name')) {
