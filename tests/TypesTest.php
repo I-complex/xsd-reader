@@ -377,4 +377,20 @@ class TypesTest extends BaseTest
 
         $this->assertEquals('anyType', $attributes[1]->getType()->getName());
     }
+
+    public function testComplexMixedContent()
+    {
+        $schema = $this->reader->readString(
+            '
+            <xs:schema targetNamespace="http://www.example.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                <xs:complexType name="mixedComplexType" mixed="true">
+                    <xs:attribute name="att1" type="xs:string"></xs:attribute>
+                </xs:complexType>
+            </xs:schema>');
+
+        $complex = $schema->findType('mixedComplexType', 'http://www.example.com');
+        $this->assertInstanceOf('GoetasWebservices\XML\XSDReader\Schema\Type\ComplexType', $complex);
+        $this->assertEquals('http://www.example.com', $complex->getSchema()->getTargetNamespace());
+        $this->assertTrue($complex->isMixed());
+    }
 }

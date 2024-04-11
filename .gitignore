@@ -5,5 +5,4 @@ vendor/
 /.idea
 /.php_cs.cache
 /phpunit/
-/composer.lock
 /.phpunit.result.cache
