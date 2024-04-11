@@ -1,5 +1,5 @@
 {
-    "name" : "goetas-webservices/xsd-reader",
+    "name" : "i-complex/xsd-reader",
     "description" : "Read any XML Schema (XSD) programmatically with PHP",
     "keywords" : [
         "xsd",
